@@ -16,6 +16,8 @@ RUN ln -s /usr/share/prometheus/console_libraries /usr/share/prometheus/consoles
 RUN mkdir -p /prometheus && \
     chown -R nobody etc/prometheus /prometheus
 
+RUN microdnf update openssl-libs
+
 USER       nobody
 EXPOSE     9090
 VOLUME     [ "/prometheus" ]
