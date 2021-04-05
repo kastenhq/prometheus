@@ -17,6 +17,10 @@ RUN mkdir -p /prometheus && \
     chown -R nobody etc/prometheus /prometheus
 
 RUN microdnf update openssl-libs
+RUN  microdnf install yum && \
+    yum -y update-minimal --security --sec-severity=Important --sec-severity=Critical && \
+    microdnf remove yum && \
+    microdnf clean all
 
 USER       nobody
 EXPOSE     9090
