@@ -1,7 +1,7 @@
 ARG PROM_IMAGE
 FROM ${PROM_IMAGE} as PROMETHEUS
 
-FROM registry.access.redhat.com/ubi8/ubi-minimal:8.3
+FROM registry.access.redhat.com/ubi8/ubi-minimal:8.4-200.1622548483
 
 COPY --from=PROMETHEUS /bin/prometheus                             /bin/prometheus
 COPY --from=PROMETHEUS /bin/promtool                               /bin/promtool
